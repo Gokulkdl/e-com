@@ -8,7 +8,6 @@ import OfferCarousel from '../componets/OfferCarousel'
 const Home = () => {
   return (
     <>
-   <Navbar />
     
     <BannerHero />
     
