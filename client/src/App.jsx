@@ -3,19 +3,28 @@ import Navbar from './componets/Navbar'
 import Highlights from './componets/Highlights'
 import BannerHero from './componets/Hero'
 import OfferCarousel from './componets/OfferCarousel'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Signup from './pages/Signup'
+
 
 const App = () => {
   return (
-    <main className='bg-black'>
-      <Navbar />
-    
-  <BannerHero />
+    // <Router>
+      <Routes>
+<Route path='/signup' element={<Signup/>}/>
+      </Routes>
+    // </Router>
   
-      <Highlights />
-      <OfferCarousel />
-      
-    </main>
     )
+//     <main className='bg-black'>
+//     <Navbar />
+  
+// <BannerHero />
+
+//     <Highlights />
+//     <OfferCarousel />
+    
+//   </main>
 }
 
 export default App
