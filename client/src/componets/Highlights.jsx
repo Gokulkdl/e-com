@@ -1,42 +1,47 @@
-import { useGSAP } from '@gsap/react'
-import React from 'react'
-import { rightImg, watchImg } from '../utils'
-import gsap from 'gsap'
-import VideoCarousel from './VideoCarousel'
+import { useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import ImageCarousel from './ImageCarousel';
+
 const Highlights = () => {
-    useGSAP(() => {
-      
-        gsap.to('#title', { opacity: 1, y: 0, })
-        gsap.to('.link', { opacity: 1, y: 0, duration: 1, stagger: 0.25 })   
-     }, [])
+  const headingRef1 = useRef(null); // Ref for "Offers in"
+  const headingRef2 = useRef(null); // Ref for "Nexure"
+
+  useEffect(() => {
+    // GSAP Animation for "Offers in"
+    gsap.from(headingRef1.current, {
+      opacity: 0,
+      y: 50, // Move it from below
+      duration: 1,
+      ease: 'power2.out',
+      delay: 0.5,
+    });
+
+    // GSAP Animation for "Nexure"
+    gsap.from(headingRef2.current, {
+      opacity: 0,
+      y: 50, // Move it from below
+      duration: 1,
+      ease: 'power2.out',
+      delay: 1.5, // Delay Nexure to animate after "Offers in"
+    });
+  }, []);
+
   return (
-   <section id='highlights' className='w-screen overflow-hidden h-full common-padding bg-zinc'>
-    <div className='screen-max-width'>
-        <div className='mb-12 w-full  md:flex items-end justify-between'> 
-            <h1 id='title'className='section-heading'>
-              Offers in 
-              <p className='ml-10'>Nexure</p>
-
-            </h1>
-            <div className=' flex flex-wrap items-end gap-5'>
-                <p className='link'>Watch the film
-                <img src={watchImg} alt="watch"className='ml-2' />
-
-                </p>
-                <p className='link'>Watch the Event
-                <img src={rightImg} alt="watch"className='ml-2' />
-
-                </p>
-                
-
-            </div>
+    <section id="highlights" className="w-screen overflow-hidden h-full common-padding bg-zinc">
+      <div className="screen-max-width">
+        <div className="mb-12 w-full md:flex items-end justify-between">
+          <h1 className="section-heading flex pl-20">
+            <span ref={headingRef1}>Offers in</span>
+            <p className="ml-5" ref={headingRef2}>Nexure</p>
+          </h1>
         </div>
-        <VideoCarousel/>
-         
-    </div>
+        <ImageCarousel />
+      </div>
+    </section>
+  );
+};
 
-   </section>
-  )
-}
+export default Highlights;
 
-export default Highlights
+
+
