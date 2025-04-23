@@ -13,6 +13,15 @@ export default {
         },
         zinc: "#101010",
       },
+      keyframes: {
+        moveUp: {
+          '0%': { transform: 'translateY(0) rotate(0deg)', opacity: '1' },
+          '100%': { transform: 'translateY(-1000px) rotate(720deg)', opacity: '0' },
+        },
+      },
+      animation: {
+        moveUp: 'moveUp 25s linear infinite',
+      },
     },
   },
   plugins: [],

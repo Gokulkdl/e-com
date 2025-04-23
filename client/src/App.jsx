@@ -1,15 +1,18 @@
 import React from 'react'
 import Navbar from './componets/Navbar'
 import Highlights from './componets/Highlights'
-import Hero from './componets/Hero'
+import BannerHero from './componets/Hero'
+import OfferCarousel from './componets/OfferCarousel'
 
 const App = () => {
   return (
     <main className='bg-black'>
       <Navbar />
     
-      <Hero />
+  <BannerHero />
+  <OfferCarousel />
       <Highlights />
+      
     </main>
     )
 }
