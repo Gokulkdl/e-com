@@ -10,8 +10,9 @@ const App = () => {
       <Navbar />
     
   <BannerHero />
-  <OfferCarousel />
+  
       <Highlights />
+      <OfferCarousel />
       
     </main>
     )
