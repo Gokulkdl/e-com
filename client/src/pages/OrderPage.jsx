@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 const OrderPage = () => {
   return (
     <>
-      <Navbar />
+ 
       <div className="flex flex-col gap-6 p-20">
         {/* Top Section: Breadcrumb + Search */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           {/* Breadcrumb Navigation */}
           <div className="flex items-center space-x-2">
-            <Link to="/account" className="hover:underline ml-20 text-xl">Profile</Link>
+            <Link to="/profile" className="hover:underline ml-20 text-xl">Profile</Link>
             <span>&gt;</span>
             <span className='text-xl '>Orders</span>
           </div>

@@ -6,6 +6,8 @@ import Signup from './pages/Signup';
 import Navbar from './componets/Navbar';
 import Profile from './pages/Profile';
 import Footer from './componets/Footer';
+import OrderPage from './pages/OrderPage';
+import OrderConfirm from './pages/OrderConfirm';
 
 const App = () => {
   return (
@@ -15,6 +17,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path='/order'element={<OrderPage/>}/>
+      <Route  path='/confirm'element={<OrderConfirm/>}/>
+
       </Routes>
       <Footer />
     </main>
