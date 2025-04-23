@@ -14,7 +14,8 @@ const Highlights = () => {
     <div className='screen-max-width'>
         <div className='mb-12 w-full  md:flex items-end justify-between'> 
             <h1 id='title'className='section-heading'>
-                Get the highlights.
+              Offers in 
+              <p className='ml-10'>Nexure</p>
 
             </h1>
             <div className=' flex flex-wrap items-end gap-5'>
