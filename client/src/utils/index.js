@@ -28,6 +28,7 @@ import explore1 from "/assets/images/explore1.jpg";
 import explore2 from "/assets/images/explore2.jpg";
 import chip from "/assets/images/chip.jpeg";
 import frame from "/assets/images/frame.png";
+import profile from '/assets/images/profile-picture.png'
 
 export const heroVideo = hmv;
 export const smallHeroVideo = smallmv;
@@ -37,6 +38,7 @@ export const highlightThirdVideo = highlightThirdmv;
 export const highlightFourthVideo = highlightFourthmv;
 export const exploreVideo = exploremv;
 export const frameVideo = framemv;
+export const profileImg = profile
 
 export const appleImg = apple;
 export const searchImg = search;
