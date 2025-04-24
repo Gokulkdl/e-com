@@ -111,7 +111,7 @@ const AllProducts = () => {
     // };
 
     return (
-        <div className="min-h-screen bg-black text-gray-100">
+        <div className="min-h-screen bg-gray-900 text-gray-100">
             {/* Header */}
             {/* <header className=" py-6 shadow-lg">
         <div className="container mx-auto px-4">

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { bagImg, searchImg } from '../utils';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const logoRef = useRef(null);
