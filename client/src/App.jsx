@@ -6,12 +6,9 @@ import Signup from './pages/Signup';
 import Navbar from './componets/Navbar';
 import Profile from './pages/Profile';
 import Footer from './componets/Footer';
-<<<<<<< HEAD
 import AllProducts from './pages/AllProducts';
-=======
 import OrderPage from './pages/OrderPage';
 import OrderConfirm from './pages/OrderConfirm';
->>>>>>> 3d82d1daee6d8e1242e933408dd76a6a40eb516e
 
 const App = () => {
   return (
@@ -21,13 +18,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
-<<<<<<< HEAD
         <Route path="/All-Products" element={<AllProducts />} />
-=======
         <Route path='/order'element={<OrderPage/>}/>
       <Route  path='/confirm'element={<OrderConfirm/>}/>
 
->>>>>>> 3d82d1daee6d8e1242e933408dd76a6a40eb516e
       </Routes>
       <Footer />
     </main>
