@@ -33,12 +33,15 @@ const Navbar = () => {
           >
             Home
           </a>
-          <a
-            href="/store"
+          <Link to={'/All-Products'}>
+          <p
             className="px-5 text-sm cursor-pointer text-gray hover:text-white transition-all duration-200"
           >
             Store
-          </a>
+          </p>
+          
+          
+          </Link>
           <a
             href="/about"
             className="px-5 text-sm cursor-pointer text-gray hover:text-white transition-all duration-200"

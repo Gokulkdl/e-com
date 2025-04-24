@@ -1,9 +1,87 @@
-import React from 'react'
 
-function Signup() {
+
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { FaEnvelope, FaLock } from 'react-icons/fa';
+
+const Signup = () => {
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      formRef.current,
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, ease: 'power4.out' }
+    );
+  }, []);
+
   return (
-    <div>Signup</div>
-  )
-}
+    <div className="relative min-h-screen w-full overflow-hidden">
+      {/* Full-screen video background */}
+      <video
+        src="/assets/videos/phone.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
-export default Signup
+      {/* Overlay + Form */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 py-10">
+        <div
+          ref={formRef}
+          className="w-full max-w-md bg-black/10 backdrop-blur-lg rounded-lg p-8 overflow-hidden"
+        >
+          <h2 className="text-3xl font-bold mb-6 text-center text-white">
+            Create Account
+          </h2>
+          <form className="space-y-6">
+            {/* Email Field */}
+            <div className="relative">
+              <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white" />
+              <input
+                type="email"
+                placeholder="Email or mobile number"
+                className="w-full pl-10 pr-4 py-3 bg-transparent text-white placeholder-white/70 border-none focus:outline-none focus:ring-0"
+              />
+            </div>
+
+            {/* Password Field */}
+            <div className="relative">
+              <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white" />
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full pl-10 pr-4 py-3 bg-transparent text-white placeholder-white/70 border-none focus:outline-none focus:ring-0"
+              />
+            </div>
+
+            <button className="w-full py-3 bg-red-600 rounded-lg font-semibold hover:bg-red-700 transition">
+              Sign Up
+            </button>
+          </form>
+
+          <div className="flex justify-between items-center mt-4 text-sm text-white/80">
+            <label className="flex items-center gap-2">
+              <input type="checkbox" className="accent-red-600" />
+              Remember me
+            </label>
+            <a href="#" className="hover:underline text-white/80">
+              Forgot password?
+            </a>
+          </div>
+
+          <div className="text-center text-sm mt-6 text-white/80">
+            Already Registered?{' '}
+            <a href="#" className="font-semibold hover:underline text-white">
+              Login
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;

@@ -10,7 +10,7 @@ const Footer = () => {
                     <h3 className="text-4xl font-bold text-gray-200 mb-10">
                         Nexure
                     </h3>
-                    <form className="space-y-4">
+                    <form className="space-y-4 h-[400px]">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium mb-1">
                                 Name
@@ -39,7 +39,7 @@ const Footer = () => {
                             </label>
                             <textarea
                                 id="message"
-                                rows={4} // You can adjust this number (3-5 is typical for messages)
+                                rows={2} // You can adjust this number (3-5 is typical for messages)
                                 className="hover:shadow-white hover:shadow w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg 
                                    focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 resize-y min-h-[100px]" // resize-y allows vertical resizing
                                 placeholder="Enter your message"
