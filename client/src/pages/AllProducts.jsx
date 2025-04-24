@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+ 
 
 const AllProducts = () => {
     // Sample product data
@@ -215,6 +217,7 @@ const AllProducts = () => {
                                         </div>
 
                                         {/* Add to Cart Button */}
+                                        <Link to={'/cart'}>
                                         <button className="group w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-500 text-white py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2">
                                             <svg
                                                 className="w-5 h-5 text-white transform group-hover:scale-110 transition-transform duration-300"
@@ -232,6 +235,7 @@ const AllProducts = () => {
                                             </svg>
                                             <span className="font-semibold">Add to Cart</span>
                                         </button>
+                                        </Link>
                                     </div>
                                 </div>
 
