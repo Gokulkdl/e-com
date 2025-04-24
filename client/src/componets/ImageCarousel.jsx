@@ -3,35 +3,32 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 const hightlightsSlide = [
+
   {
     id: 1,
-    image: "/assets/images/samtv.jpg",
-    textLists: [" Samsung Neo QLED 8K", "Experience cinematic brilliance with ultra-fine contrast and vivid colors powered by Quantum Matrix Technology Pro and 8K resolution."],
-  },
-  {
-    id: 2,
-    image: "/assets/images/samtv.jpg",
+    video: "/assets/videos/hightlight-third.mp4",
     textLists: ["iPhone 15 Pro", "Crafted from aerospace-grade titanium with a blazing fast A17 Pro chip, ProMotion display, and powerful camera system — reimagining what a smartphone can do."],
   },
   {
+    id: 2,
+    video: "/assets/videos/galaxy-s25-ultra-features-form-factor.webm",
+    textLists: ["Samsung Galaxy S23", "Industry-leading noise cancellation, ultra-clear sound, and all-day comfort — the ultimate escape into pure audio bliss."],
+  },
+  {
     id: 3,
-    image: "/assets/images/samtv.jpg",
-    textLists: ["Sony WH-1000XM5", "Industry-leading noise cancellation, ultra-clear sound, and all-day comfort — the ultimate escape into pure audio bliss."],
+    video: "/assets/videos/hightlight-fourth.mp4",
+    textLists: ["iPhone 16 Pro", "Power meets elegance with the Apple M3 chip, Liquid Retina XDR display, and marathon battery life — designed for creators and pros alike."],
   },
   {
     id: 4,
-    image: "/assets/images/samtv.jpg",
-    textLists: ["MacBook Pro", "Power meets elegance with the Apple M3 chip, Liquid Retina XDR display, and marathon battery life — designed for creators and pros alike."],
-  },
-  {
-    id: 5,
-    image: "/assets/images/samtv.jpg",
-    textLists: [" HP Pavilion 15", "Reliable performance and immersive visuals with Intel Core processors and Full HD display — ideal for everyday productivity and entertainment."],
+    video: "/assets/videos/Nothing.mp4",
+    textLists: ["Nothing", "Reliable performance and immersive visuals with Intel Core processors and Full HD display — ideal for everyday productivity and entertainment."],
   },
 ];
 
 const ImageCarousel = () => {
   const imageRef = useRef(null);
+  const videoRefs = useRef([]);
   const imageSpanRef = useRef([]);
   const [imageId, setImageId] = useState(0);
   const textRef = useRef([]);
@@ -40,7 +37,7 @@ const ImageCarousel = () => {
     gsap.fromTo(
       "#image",
       { opacity: 0 },
-      { opacity: 1, duration: 0.8, ease: "power2.inOut" }
+      { opacity: 1, duration: 1, ease: "power2.inOut" }
     );
   }, [imageId]);
 
@@ -48,27 +45,63 @@ const ImageCarousel = () => {
     gsap.fromTo(
       textRef.current,
       { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      { y: 0, opacity: 1, duration: 5, ease: "power3.out" }
     );
   }, [imageId]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setImageId((prev) => (prev + 1) % hightlightsSlide.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    let timeout;
+    const currentSlide = hightlightsSlide[imageId];
+
+    // Pause all videos first
+    videoRefs.current.forEach((video) => {
+      if (video) video.pause();
+    });
+
+    if (currentSlide.video && videoRefs.current[imageId]) {
+      const videoEl = videoRefs.current[imageId];
+
+      const handleEnded = () => {
+        setImageId((prev) => (prev + 1) % hightlightsSlide.length);
+      };
+
+      videoEl.currentTime = 0;
+      videoEl.play();
+      videoEl.addEventListener('ended', handleEnded);
+
+      return () => {
+        videoEl.removeEventListener('ended', handleEnded);
+      };
+    } else {
+      timeout = setTimeout(() => {
+        setImageId((prev) => (prev + 1) % hightlightsSlide.length);
+      }, 3000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [imageId]);
 
   return (
     <div className="w-full flex flex-col items-center">
       <div className="relative w-[90vw] h-[70vh] max-w-5xl rounded-3xl overflow-hidden bg-black">
-        <img
-          id="image"
-          ref={imageRef}
-          src={hightlightsSlide[imageId].image}
-          alt={`highlight-image-${imageId}`}
-          className="w-full h-full object-cover rounded-3xl"
-        />
+        {hightlightsSlide[imageId].video ? (
+          <video
+            id="image"
+            ref={(el) => (videoRefs.current[imageId] = el)}
+            src={hightlightsSlide[imageId].video}
+            muted
+            playsInline
+            className="w-full h-full object-cover rounded-3xl"
+          />
+        ) : (
+          <img
+            id="image"
+            ref={imageRef}
+            src={hightlightsSlide[imageId].image}
+            alt={`highlight-image-${imageId}`}
+            className="w-full h-full object-cover rounded-3xl"
+          />
+        )}
 
         {/* Text overlay bottom-left with left gradient */}
         <div className="absolute inset-0 flex items-end">
@@ -108,6 +141,13 @@ const ImageCarousel = () => {
 };
 
 export default ImageCarousel;
+
+
+
+
+
+
+
 
 
 
