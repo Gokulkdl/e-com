@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Signup = () => {
+const Login = () => {
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Signup = () => {
       {/* Full-screen video background */}
       <video
         // src="/assets/videos/phone.mp4"
-        src="https://media-hosting.imagekit.io/555781879d114a47/phone.mp4?Expires=1840015344&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=XcCkex0ZSsWnHax8rsBH8vcw3FMGp3VIBdFHGDiVWen2YSODktr-x9TjTA0s3s6m12hZBzV49xMmwjSVtahRW3fwjnU6KilP6cZBPEZqYpPESnXG2wkwPo5QLjnEFxEmAesEYOMd3jlZjLGZSjNWQdgD8JBbsRA-noqurQmmF8uHLriQYo7WViOZ4gjJEJ3eNpdEBVoPVkx1oR7UK-roFpKGJfLLqfC50thoSnCdIN5BKLCvtcLBN7a~lx21YfNt1SNmkqf8B-AaAqXwMuAVTcbklANVUoIYtRfGxrdUd~LDzkqWyLMo05TsQBEchlKkiu0Up2qrXcrm9Uz3Y9bdYQ__"
+        src="https://media-hosting.imagekit.io/9357c554be634590/login.mp4?Expires=1840015709&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=i66PElV48930oO2iGDrfmBusf3OTTwH11TS3xyN56QzIKyfflrig2kPQc5pSvyiT1vOFbfayU0YDwPndFau~RcD0~a00IvBiQxhSDsNiolXhuCYQ9DonBEhqCjGtrMNQ2FQXPWaunvUkfTCj12x4J568ni4NeP-lt115nlkYS8~-havcnwOBbwKssrsKGs6tQl6LZaG1508Lm~9cP8BOjg~OML-Uya6KyEywenkUZNzPsLd6toOMoY1JTvBJEsil2kl6PoLr646Zs18S-zIWYXF6Lst4oEbLrNKIWl0dR4t8Vxo4DOGV386v6izSBPWgRo3G8qGWhzudTDV2EC8Dxw__"
         autoPlay
         muted
         loop
@@ -35,9 +35,11 @@ const Signup = () => {
           ref={formRef}
           className="w-full max-w-md bg-black/10 backdrop-blur-lg rounded-lg p-8 overflow-hidden"
         >
-          <h2 className="text-3xl font-bold mb-6 text-center text-white">
-            Create Account
-          </h2>
+           <h2 className="text-3xl font-bold mb-6 text-center text-white">
+            Login here
+          </h2> 
+  
+
           <form className="space-y-6">
             {/* Email Field */}
             <div className="relative">
@@ -59,28 +61,20 @@ const Signup = () => {
               />
             </div>
 
-{/* confirm password */}
 
-<div className="relative">
-              <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white" />
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                className="w-full pl-10 pr-4 py-3 bg-transparent text-white placeholder-white/70 border-none focus:outline-none focus:ring-0"
-              />
-            </div>
+
             <button className="w-full py-3 bg-red-600 rounded-lg font-semibold hover:bg-red-700 transition">
-              Sign Up
+              Login
             </button>
           </form>
 
          
 
           <div className="text-center text-sm mt-6 text-white/80">
-            Already Registered?{' '}
-            <Link to={'/login'}>
+            Not Registered?{' '}
+            <Link to={'/signup'}>
             <a href="#" className="font-semibold hover:underline text-white">
-              Login
+              SignUp
             </a>
             </Link>
           </div>
@@ -90,4 +84,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

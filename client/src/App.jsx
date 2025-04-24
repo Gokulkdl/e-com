@@ -6,6 +6,8 @@ import Signup from './pages/Signup';
 import Navbar from './componets/Navbar';
 import Profile from './pages/Profile';
 import Footer from './componets/Footer';
+import Login from './pages/Login';
+import SingleProduct from './pages/SingleProduct';
 
 const App = () => {
   return (
@@ -15,6 +17,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/singleproduct" element={<SingleProduct />} />
+
       </Routes>
       <Footer />
     </main>
