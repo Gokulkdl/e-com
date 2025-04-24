@@ -22,7 +22,7 @@ const Highlights = () => {
       y: 50, // Move it from below
       duration: 1,
       ease: 'power2.out',
-      delay: 1.5, // Delay Nexure to animate after "Offers in"
+      delay: 1, // Delay Nexure to animate after "Offers in"
     });
   }, []);
 

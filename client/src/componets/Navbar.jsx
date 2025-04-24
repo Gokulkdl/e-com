@@ -1,12 +1,27 @@
-import React from 'react';
-import { bagImg, searchImg } from '../utils'; // Still using your icon imports
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { bagImg, searchImg } from '../utils';
 
 const Navbar = () => {
+  const logoRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      logoRef.current,
+      { opacity: 0, x: -50 },
+      { opacity: 1, x: 0, duration: 1.2, ease: 'power3.out' }
+    );
+  }, []);
+
   return (
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center bg-black">
       <nav className="flex screen-max-width w-full items-center">
-        {/* Logo */}
-        <a href="/" className="text-4xl font-bold text-gray-600">
+        {/* Logo with animation */}
+        <a
+          href="/"
+          ref={logoRef}
+          className="text-4xl font-bold text-gray-200"
+        >
           Nexure
         </a>
 
@@ -49,4 +64,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 

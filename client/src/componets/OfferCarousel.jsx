@@ -4,19 +4,34 @@ import gsap from 'gsap';
 const OfferCarousel = () => {
   const offers = [
     {
-      title: '🔥 Mega Deal on iPhone 15',
-      description: 'Save up to $300 for a limited time!',
-      backgroundImage: '/assets/images/iphone15-bg.jpg',
+      title: 'Samsung',
+      description:
+        'Innovative and versatile — Known for flagship Galaxy S series and foldable Z series with cutting-edge displays and cameras.',
+      videoSrc: '/assets/videos/galaxy-z-fold6-features-highlights-design.webm',
     },
     {
-      title: '🚀 Galaxy S25 Launch Offer',
-      description: 'Grab $200 off + free accessories!',
-      backgroundImage: '/assets/images/galaxy-s25-bg.jpg',
+      title: 'Apple',
+      description:
+        'Premium and polished — Makers of the iPhone, famous for sleek design, performance, and the iOS ecosystem.',
+      videoSrc: '/assets/videos/iphone-video.mp4',
     },
     {
-      title: '💻 MacBook Pro Special',
-      description: 'Exclusive $500 off for students!',
-      backgroundImage: '/assets/images/macbook-pro-bg.jpg',
+      title: 'Google',
+      description:
+        'Clean and smart — Pixel phones offer the best Android experience with top-tier cameras and AI features.',
+      videoSrc: '/assets/videos/pixls-phone.webm',
+    },
+    {
+      title: 'Xiaomi',
+      description:
+        'Feature-rich and affordable — Offers powerful specs for budget-conscious users through its Redmi and Mi series.',
+      videoSrc: '/assets/videos/Xiaomi-phone-video.mp4',
+    },
+    {
+      title: 'Vivo',
+      description:
+        'Stylish and innovative — Known for sleek design, fast charging, and solid mid-range options.',
+      videoSrc: '/assets/videos/vivo-x200-pro-with-curved-design.webm',
     },
   ];
 
@@ -40,25 +55,32 @@ const OfferCarousel = () => {
   const currentOffer = offers[currentIndex];
 
   return (
-    <section className="w-full h-[300px] relative overflow-hidden cursor-pointer">
-      {/* Click Zones */}
-      <div
-        className="absolute top-0 left-0 w-1/2 h-full z-20"
-        onClick={prevSlide}
-      />
-      <div
-        className="absolute top-0 right-0 w-1/2 h-full z-20"
-        onClick={nextSlide}
-      />
+    <section className="w-full py-10  text-gray-400 relative overflow-hidden">
+      <h2 className="text-6xl font-bold text-left pl-20 mb-8">Top Brands</h2>
 
-      <div
-        ref={cardRef}
-        className="carousel-card w-full h-full bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${currentOffer.backgroundImage})` }}
-      >
-        <div className="bg-black/50 p-6 rounded-lg text-center text-white w-full max-w-xl mx-auto">
-          <h2 className="text-3xl font-bold mb-2">{currentOffer.title}</h2>
-          <p className="text-lg">{currentOffer.description}</p>
+      {/* Click Zones */}
+      <div className="absolute top-0 left-0 w-1/2 h-full z-30" onClick={prevSlide} />
+      <div className="absolute top-0 right-0 w-1/2 h-full z-30" onClick={nextSlide} />
+
+      {/* Video Background */}
+      <div className="relative w-full h-[300px] md:h-[400px] rounded-3xl mx-auto overflow-hidden">
+        <video
+          key={currentOffer.videoSrc} // Ensures reloading on index change
+          className="absolute top-0 left-0 w-full h-full object-cover z-10"
+          src={currentOffer.videoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        <div
+          ref={cardRef}
+          className="relative z-20 flex items-center justify-center w-full h-full"
+        >
+          <div className="bg-black/60 backdrop-blur-md p-6 rounded-lg text-center max-w-2xl mx-auto">
+            <h3 className="text-3xl font-semibold mb-2">{currentOffer.title}</h3>
+            <p className="text-base md:text-lg font-light">{currentOffer.description}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -66,6 +88,7 @@ const OfferCarousel = () => {
 };
 
 export default OfferCarousel;
+
 
 
 

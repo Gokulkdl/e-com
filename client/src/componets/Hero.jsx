@@ -8,17 +8,20 @@ const Hero = () => {
     {
       name: 'iPhone 15 Pro',
       video: heroVideo,
-      smallVideo: smallHeroVideo
+      smallVideo: smallHeroVideo,
+      rate:'999$'
     },
     {
       name: 'Galaxy S25 Ultra',
       video: '/assets/videos/galaxy-s25-ultra-features-form-factor.webm',
-      smallVideo: '/assets/videos/galaxy-s25-ultra-features-form-factor.webm'
+      smallVideo: '/assets/videos/galaxy-s25-ultra-features-form-factor.webm',
+       rate:'989$'
     },
     {
-      name: 'iPhone 13 Pro',
-      video: '/path/to/iphone13/video.mp4',
-      smallVideo: '/path/to/iphone13/small/video.mp4'
+      name: 'Vivo x200 Pro',
+      video: '/public/assets/videos/vivo-x200-pro-with-curved-design.webm',
+      smallVideo: ' /public/assets/videos/vivo-x200-pro-with-curved-design.webm',
+       rate:'789$'
     }
   ];
 
@@ -63,10 +66,7 @@ const Hero = () => {
 
   return (
     <section className="w-full nav-height bg-black relative overflow-hidden">
-      
-     
-
-      {/* Samsung model video */}
+      {/* Samsung overlay video */}
       {isSamsung && (
         <div className="absolute top-0 left-0 w-full h-full z-10">
           <video
@@ -81,8 +81,12 @@ const Hero = () => {
         </div>
       )}
 
+      {/* Click Zones */}
+      <div className="absolute top-0 left-0 w-1/2 h-full z-20" onClick={prevModel}></div>
+      <div className="absolute top-0 right-0 w-1/2 h-full z-20" onClick={nextModel}></div>
+
       <div className="h-5/6 w-full flex justify-center items-center flex-col z-10 relative">
-        <div className="md:w-[400px] w-[280px] relative">
+        <div className="w-[90%] max-w-[800px] relative">
           <video
             autoPlay
             muted
@@ -95,7 +99,7 @@ const Hero = () => {
 
           <p
             id="hero"
-            className="hero-title absolute ml-12 left-4 text-white text-2xl md:text-4xl font-bold bg-black/60 px-4 py-2 rounded opacity-0"
+            className="hero-title absolute ml-[250px] left-4 text-white text-2xl md:text-4xl font-bold bg-black/60 px-4 py-2 rounded opacity-0"
           >
             {currentModel.name}
           </p>
@@ -104,20 +108,14 @@ const Hero = () => {
 
       <div id="cta" className="flex flex-col items-center opacity-0 translate-y-20 mt-6 text-white z-10 relative">
         <a href="#highlights" className="btn w-[80px] flex justify-center px-10">Buy</a>
-        <p className="font-normal text-xl w-[300px] text-center mt-2">From $199/month or $999</p>
-      </div>
-
-      <div className="absolute top-1/2 left-0 transform -translate-y-1/2 flex flex-col space-y-4 ml-6 z-10">
-        <button onClick={prevModel} className="text-white text-4xl">&#8592;</button>
-      </div>
-
-      <div className="absolute top-1/2 right-0 transform -translate-y-1/2 flex flex-col space-y-4 mr-6 z-10">
-        <button onClick={nextModel} className="text-white text-4xl">&#8594;</button>
+        <p className="font-normal text-xl w-[300px] text-center mt-2">From $199/month or {currentModel.rate}</p>
       </div>
     </section>
   );
 };
 
 export default Hero;
+
+
 
 
