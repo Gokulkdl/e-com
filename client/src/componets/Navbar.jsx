@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { bagImg, profileImg, searchImg } from '../utils';
 import { Link } from 'react-router-dom';
 
-
 const Navbar = () => {
   const logoRef = useRef(null);
 
@@ -16,7 +15,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center bg-black">
+    <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center bg-black opacity-80 sticky top-0 z-50">
       <nav className="flex screen-max-width w-full items-center">
         {/* Logo with animation */}
         <a
@@ -36,13 +35,11 @@ const Navbar = () => {
             Home
           </a>
           <Link to={'/All-Products'}>
-          <p
-            className="px-5 text-sm cursor-pointer text-gray hover:text-white transition-all duration-200"
-          >
-            Store
-          </p>
-          
-          
+            <p
+              className="px-5 text-sm cursor-pointer text-gray hover:text-white transition-all duration-200"
+            >
+              Store
+            </p>
           </Link>
           <a
             href="/About"
@@ -63,11 +60,8 @@ const Navbar = () => {
           <img src={searchImg} alt="search" width={18} height={18} />
           <img src={bagImg} alt="bag" width={18} height={18} />
           <Link to={'/profile'}>
-          
-                 
-          <img src={profileImg} alt="" width={22} height={22}/>
-         </Link>
-
+            <img src={profileImg} alt="" width={22} height={22} />
+          </Link>
         </div>
       </nav>
     </header>
