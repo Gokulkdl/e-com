@@ -45,7 +45,7 @@ const Navbar = () => {
           
           </Link>
           <a
-            href="/about"
+            href="/About"
             className="px-5 text-sm cursor-pointer text-gray hover:text-white transition-all duration-200"
           >
             About

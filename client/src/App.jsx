@@ -11,6 +11,7 @@ import OrderPage from './pages/OrderPage';
 import OrderConfirm from './pages/OrderConfirm';
 import Wishlist from './pages/Wishlist';
 import Cart from './pages/Cart';
+import About from './pages/About';
 
 const App = () => {
   return (
@@ -25,6 +26,8 @@ const App = () => {
         <Route path='/confirm'element={<OrderConfirm/>}/>
         <Route path='/Wishlist' element={<Wishlist/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/About' element={<About/>}/>
+
       </Routes>
       <Footer />
     </main>
