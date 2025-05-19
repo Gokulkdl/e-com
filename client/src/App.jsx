@@ -12,6 +12,8 @@ import OrderConfirm from './pages/OrderConfirm';
 import Wishlist from './pages/Wishlist';
 import Login from './pages/Login';
 import SingleProduct from './pages/SingleProduct';
+import Cart from './pages/Cart';
+import About from './pages/About';
 
 const App = () => {
   return (
@@ -23,11 +25,13 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/All-Products" element={<AllProducts />} />
         <Route path='/order'element={<OrderPage/>}/>
-      <Route  path='/confirm'element={<OrderConfirm/>}/>
-      <Route path='/Wishlist' element={<Wishlist/>}/>
+        <Route path='/confirm'element={<OrderConfirm/>}/>
+        <Route path='/Wishlist' element={<Wishlist/>}/>
 
         <Route path="/login" element={<Login />} />
         <Route path="/singleproduct" element={<SingleProduct />} />
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/About' element={<About/>}/>
 
       </Routes>
       <Footer />

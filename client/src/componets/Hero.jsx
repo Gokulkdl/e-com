@@ -15,13 +15,13 @@ const Hero = () => {
       name: 'Galaxy S25 Ultra',
       video: '/assets/videos/galaxy-s25-ultra-features-form-factor.webm',
       smallVideo: '/assets/videos/galaxy-s25-ultra-features-form-factor.webm',
-       rate:'989$'
+      rate:'989$'
     },
     {
       name: 'Vivo x200 Pro',
       video: '/public/assets/videos/vivo-x200-pro-with-curved-design.webm',
       smallVideo: ' /public/assets/videos/vivo-x200-pro-with-curved-design.webm',
-       rate:'789$'
+      rate:'789$'
     }
   ];
 
@@ -91,6 +91,7 @@ const Hero = () => {
             autoPlay
             muted
             playsInline
+            onEnded={nextModel}  // ✅ Added here
             key={videoSrc}
             className="w-full h-auto rounded-lg object-contain z-10"
           >
@@ -115,7 +116,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-
-
