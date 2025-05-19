@@ -1,8 +1,6 @@
 
 
 
-
-
 import React from "react";
 
 const SingleProduct = () => {
@@ -11,8 +9,6 @@ const SingleProduct = () => {
     brand: "Samsung",
     price: 124999,
     originalPrice: 139999,
-    rating: 4.7,
-    totalRatings: 1832,
     description:
       "The ultimate flagship with 200MP Pro-grade camera, Snapdragon 8 Gen 3, 12GB RAM and sleek titanium finish. Experience seamless power with Android 14.",
     image: "/assets/images/galaxy.jpg",
@@ -32,83 +28,72 @@ const SingleProduct = () => {
     },
   };
 
-  const discount =
-    Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-pink-50 py-10 px-4 lg:px-20 font-sans">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
-
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-white to-gray-100 py-10 px-4 sm:px-6 lg:px-20">
+      <div className="max-w-6xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 p-6 sm:p-8">
         {/* Left - Images */}
-        <div className="w-full lg:w-1/2">
-          <div className="border rounded-2xl overflow-hidden mb-4 shadow-md hover:shadow-lg transition">
+        <div className="flex flex-col gap-4">
+          <div className="rounded-xl overflow-hidden shadow-md">
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-[500px] object-cover"
+              className="w-full h-auto object-contain rounded-xl transition-transform duration-300 hover:scale-105"
             />
           </div>
-            <div className="flex gap-3 justify-center">
+          <div className="flex gap-3 justify-center flex-wrap">
             {product.gallery.map((img, idx) => (
               <img
                 key={idx}
                 src={img}
-                alt={`thumb-${idx}`}
-                className="w-20 h-20 object-cover rounded-xl border-2 border-transparent hover:border-pink-600 transition-all shadow-sm"
-              /> 
+                alt={`gallery-${idx}`}
+                className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg border shadow hover:scale-110 hover:ring-2 ring-gray-300 transition-all duration-200"
+              />
             ))}
-          </div> 
+          </div>
         </div>
 
         {/* Right - Details */}
-        <div className="w-full lg:w-1/2 space-y-6">
+        <div className="space-y-6 text-gray-800">
           <div>
-            <h2 className="text-base text-gray-500 font-medium uppercase">{product.brand}</h2>
-            <h1 className="text-3xl font-bold text-gray-800 leading-tight">{product.name}</h1>
-            <div className="flex items-center gap-2 mt-1">
-              <span className="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold shadow-sm">
-                ⭐ {product.rating}
-              </span>
-              <span className="text-sm text-gray-500">{product.totalRatings}+ ratings</span>
-            </div>
+            <h2 className="text-sm font-medium uppercase text-gray-500 tracking-widest">
+              {product.brand}
+            </h2>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
+              {product.name}
+            </h1>
           </div>
 
-          {/* Price Block */}
-          <div className="space-y-1">
-            <div className="text-3xl font-bold text-pink-600">
+          <div>
+            <div className="text-2xl sm:text-3xl font-bold text-gray-900">
               ₹{product.price.toLocaleString()}
-              <span className="text-gray-400 text-base font-normal line-through ml-3">
+              <span className="ml-3 text-base text-gray-400 line-through font-medium">
                 ₹{product.originalPrice.toLocaleString()}
               </span>
-              <span className="ml-2 text-green-600 font-semibold text-sm bg-green-100 px-2 py-0.5 rounded">
-                {discount}% OFF
-              </span>
             </div>
-            <p className="text-sm text-gray-400">Inclusive of all taxes</p>
+            <p className="text-sm text-gray-500 mt-1">Inclusive of all taxes</p>
           </div>
 
-          {/* Description */}
-          <p className="text-gray-700 text-base leading-relaxed border-y py-4">
+          <p className="text-gray-700 text-base leading-relaxed border-y border-gray-200 py-4">
             {product.description}
           </p>
 
-          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-all">
-              🛍️ ADD TO BAG
+            <button className="bg-gray-900 text-white hover:bg-gray-800 font-semibold px-6 py-3 rounded-lg shadow transition-all duration-200 w-full sm:w-auto">
+              🛒 Add to Cart
             </button>
-            <button className="border border-gray-400 hover:border-pink-500 text-gray-800 hover:text-pink-600 px-6 py-3 rounded-lg font-medium transition-all">
-              ❤️ WISHLIST
+            <button className="border border-gray-300 hover:bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-medium transition-all w-full sm:w-auto">
+              ❤️ Wishlist
             </button>
           </div>
 
-          {/* Specs */}
-          <div className="pt-6">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4 border-b pb-1">Product Specifications</h3>
+          <div className="pt-4">
+            <h3 className="text-lg font-semibold mb-4 border-b border-gray-200 pb-2">
+              Specifications
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 text-sm text-gray-700">
               {Object.entries(product.specs).map(([key, value]) => (
                 <div key={key}>
-                  <span className="font-semibold capitalize text-gray-600">{key}:</span>{" "}
+                  <span className="font-semibold capitalize">{key}:</span>{" "}
                   <span>{value}</span>
                 </div>
               ))}
